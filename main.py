@@ -1,3 +1,22 @@
+import os
+
+NOTES_FILE = "notes.txt"
+
+def read_notes():
+    if os.path.exists(NOTES_FILE):
+        with open(NOTES_FILE, "r") as f:
+            return [line.strip() for line in f]
+    return []
+
+def view_notes():
+    notes = read_notes()
+    if not notes:
+        print("No notes found.")
+    else:
+        print("Your notes:")
+        for idx, note in enumerate(notes, 1):
+            print(f"{idx}. {note}")
+
 def add_note():
     note = input("Enter your new note: ")
     with open(NOTES_FILE, "a") as f:
@@ -16,5 +35,10 @@ def search_notes():
         print("No notes found containing that keyword.")
 
 def main():
-    add_note()
-    search_notes()
+    # TEMP for testing; comment/uncomment as needed
+    view_notes()
+    # add_note()
+    # search_notes()
+
+if __name__ == "__main__":
+    main()
