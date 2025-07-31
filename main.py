@@ -2,6 +2,24 @@ import os
 
 NOTES_FILE = "notes.txt"
 
+def delete_note():
+    notes = read_notes()
+    if not notes:
+        print("No notes to delete.")
+        return
+    view_notes()
+    try:
+        num = int(input("Enter the note number to delete: "))
+        if 1 <= num <= len(notes):
+            removed = notes.pop(num - 1)
+            with open(NOTES_FILE, "w") as f:
+                for note in notes:
+                    f.write(note + "\n")
+            print(f"Deleted note: {removed}")
+        else:
+            print("Invalid note number.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 def read_notes():
     if os.path.exists(NOTES_FILE):
@@ -40,6 +58,7 @@ def main():
     view_notes()
     add_note()
     search_notes()
+    delete_note()
 
 if __name__ == "__main__":
     main()
