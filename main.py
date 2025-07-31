@@ -37,8 +37,8 @@ def search_notes():
 def main():
     # TEMP for testing; comment/uncomment as needed
     view_notes()
-    # add_note()
-    # search_notes()
+    add_note()
+    search_notes()
 
 if __name__ == "__main__":
     main()
