@@ -3,7 +3,7 @@ import os
 NOTES_FILE = "notes.txt"
 
 def delete_note():
-    # notes = read_notes()
+    notes = read_notes()
     if not notes:
         print("No notes to delete.")
         return
