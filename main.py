@@ -80,7 +80,7 @@ def main():
     add_note()
     search_notes()
     delete_note()
-    print("error")
+    # print("error")
 
 if __name__ == "__main__":
     main()
